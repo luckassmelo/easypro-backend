@@ -10,9 +10,8 @@ export class LoginRepository implements LoginRepositoryInterface {
     const knex = this.knexAdapter.getKnexInstance();
 
     const user = await knex<UserType>('users.tbl_users')
-      .where('users.tbl_users.login_user', username)
-      .where('users.tbl_users.login_passwd', password);
-
+      .where('users.tbl_users.windows_user', username)
+      .where('users.tbl_users.login_pwd', password);
     return user[0];
   }
 
